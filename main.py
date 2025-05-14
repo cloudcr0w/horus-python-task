@@ -27,7 +27,7 @@ def fetch_user(i, offset):
     if response.status_code == 200:
         data = response.json()
         user = data["results"][0]
-
+# dodałem test_, żeby łatwiej było potem masowo usunąć konta testowe
         username = f"test_{user['login']['username']}"
         return {
             "index": offset + i + 1,
@@ -54,6 +54,6 @@ for loop_users in range(20):
             print(
                 f"[{user['index']}] Name: {user['first']} {user['last']} – login: {user['username']}"
             )
-        fullname = f"{user['first']} {user['last']}"
+        fullname = f"{user['first']} {user['last']}" 
         user_add(user["username"], fullname)
     time.sleep(2)
